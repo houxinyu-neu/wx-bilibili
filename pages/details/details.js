@@ -1,80 +1,52 @@
+// pages/details/details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // 导航栏数据
-    navList: [],
-    // 导航栏点击索引
-    currentIndexNav: 0,
-    // 轮播图数据
-    swiperList: [],
-    // 视频数据
-    videoList: []
+    // 视频详情数据
+    videoInfo: null,
+    // 推荐视频数据
+    videoOtherInfo: []
   },
 
-  // 获取导航栏数据
-  getNavList: function () {
+  // 获取视频详情数据
+  getVideoInfo: function (id) {
     let that = this
     wx.request({
-      url: 'http://mock-api.com/mnEe4VnJ.mock/navList',
+      url: 'http://mock-api.com/mnEe4VnJ.mock/videoDetail?id=1',
       success(res) {
         if (res.data.code === 0) {
           that.setData({
-            navList: res.data.data.navList
+            videoInfo: res.data.data.videoInfo
           })
         }
       }
     })
   },
 
-  // 点击导航栏下方高亮 
-  activeNav: function (e) {
-    this.setData({
-      currentIndexNav: e.target.dataset.index
-    })
-  },
-
-  // 获取轮播图数据
-  getSwiper: function () {
+  // 获取推荐视频数据
+  getVideoOterInfo: function(id){
     let that = this
     wx.request({
-      url: 'http://mock-api.com/mnEe4VnJ.mock/swiperList',
-      success(res) {
-        if (res.data.code === 0) {
-          that.setData({
-            swiperList: res.data.data.swiperList
-          })
-        }
-      }
-    })
-  },
-
-  // 获取视频数据
-  getVideo: function () {
-    let that = this
-    wx.request({
-      url: 'http://mock-api.com/mnEe4VnJ.mock/videoList',
+      url: 'http://mock-api.com/mnEe4VnJ.mock/otherList',
       success(res) {
         if(res.data.code === 0){
           that.setData({
-            videoList:res.data.data.videoList
+            videoOtherInfo:res.data.data.otherList
           })
         }
-      }
+      } 
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 1. 获取导航栏数据
-    this.getNavList()
-    // 2. 获取轮播图数据
-    this.getSwiper()
-    // 3. 获取视频详情
-    this.getVideo()
+    this.getVideoInfo(options.id)
+    this.getVideoOterInfo(options.id)
   },
 
   /**

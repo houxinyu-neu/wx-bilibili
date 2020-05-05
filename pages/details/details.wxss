@@ -1,0 +1,61 @@
+/* pages/details/details.wxss */
+/* 视频信息 */
+.main{
+  padding: 10rpx;
+  color: #666;
+}
+/* 视频信息 */
+.video_info{
+  margin-top: 10rpx;
+}
+.video_info video{
+  width: 100%;
+} 
+.video_title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 35rpx;
+}
+.video_detail{
+  margin-top: 5rpx;
+  font-size: 28rpx;
+}
+.video_author{
+  color: #000;
+}
+.video_detail text{
+  margin-left: 10rpx;
+}
+/* 推荐信息 */
+.video_other{
+  margin-top: 10rpx;
+}
+.item_other{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.other_image_wrap{
+  width: 38%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.other_image_wrap image{
+  width: 90%;
+  border-radius: 15rpx;
+}
+.other_info{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.other_title{
+  font-size: 30rpx;
+  color: #e06f93;
+}
+.other_detail{
+  font-size: 26rpx;
+  color: #666;
+}
